@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">NMedia</string>
+    <string name="nmedia">NMedia!</string>
+    <string name="description_post_author_avatar">Post author avatar</string>
+    <string name="description_post_menu">Post menu</string>
+    <string name="like" translatable="false">like</string>
+    <string name="share" translatable="false">Share</string>
+    <string name="view" translatable="false">View</string>
+    <string name="menu_remove">Remove</string>
+    <string name="menu_edit">Edit</string>
+</resources>
