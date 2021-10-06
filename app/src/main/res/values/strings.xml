@@ -8,4 +8,5 @@
     <string name="view" translatable="false">View</string>
     <string name="menu_remove">Remove</string>
     <string name="menu_edit">Edit</string>
+    <string name="edit_message">Edit Message</string>
 </resources>
