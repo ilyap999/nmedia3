@@ -2,11 +2,9 @@ package ru.netology.nmedia
 
 import android.os.Bundle
 import android.view.View
-
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import ru.netology.nmedia.adapter.OnActionListener
 import ru.netology.nmedia.adapter.PostAdapter
 import ru.netology.nmedia.databinding.ActivityMainBinding
@@ -53,13 +51,7 @@ class MainActivity : AppCompatActivity() {
             binding.content.requestFocus()
         }
 
-
-
         binding.save.setOnClickListener {
-            //Закрыть видимость
-            //binding.groupEdit.visibility = View.GONE
-            //val qqq = binding.groupEdit.isVisible
-
             with(binding.content) {
                 if (text.isNullOrBlank()) {
                     Toast.makeText(context, "Content must not be empty!", Toast.LENGTH_SHORT).show()
@@ -69,6 +61,16 @@ class MainActivity : AppCompatActivity() {
                 viewModel.changeContent(text.toString())
                 viewModel.save()
 
+                setText("")
+                clearFocus()
+                AndroidUtils.hideKeyboard(this)
+            }
+            //Закрыть видимость
+            binding.groupEdit.visibility = View.GONE
+        }
+
+        binding.cross.setOnClickListener {
+            with(binding.content) {
                 setText("")
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
