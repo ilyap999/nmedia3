@@ -1,16 +1,13 @@
 package ru.netology.nmedia
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.adapter.OnActionListener
 import ru.netology.nmedia.adapter.PostAdapter
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.dto.Post
-
-import ru.netology.nmedia.dto.longToString
 import ru.netology.nmedia.utils.AndroidUtils
 
 class MainActivity : AppCompatActivity() {
@@ -20,9 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val viewModel: PostViewModel by viewModels()
         val adapter = PostAdapter (
-            //likeListener = {viewModel.likeById(it.id)},
-            //shareListener = {viewModel.shareById(it.id)},
-            //removeListener = {viewModel.removeById(it.id)}
+
             object : OnActionListener {
                 override fun onEditClicked(post: Post) {
                     viewModel.edit(post)

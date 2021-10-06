@@ -7,7 +7,6 @@ class PostRepositoryInMemory : PostRepository {
 
     private var postId = 1L
 
-    //private companion object {
         private val defaultPosts = listOf(
             Post(
                 id = postId++,
@@ -74,7 +73,6 @@ class PostRepositoryInMemory : PostRepository {
             )
         ).reversed()
 
-    // }
     override fun save(post: Post) {
         if (post.id == 0L) {
             data.value = listOf(post) + data.value.orEmpty()

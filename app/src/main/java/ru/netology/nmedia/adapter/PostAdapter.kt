@@ -16,15 +16,8 @@ interface OnActionListener {
     fun onShareClicked(post: Post) = Unit
 }
 
-//typealias OnLikeListener = (post: Post) -> Unit
-//typealias OnShareListener = (post: Post) -> Unit
-//typealias OnRemoveListener = (post: Post) -> Unit
-
 class PostAdapter(
     private val actionListener: OnActionListener
-    //private val likeListener: OnLikeListener,
-    //private val shareListener: OnShareListener,
-    //private val removeListener: OnRemoveListener
 ): RecyclerView.Adapter<PostViewHolder>() {
     var posts: List<Post> = emptyList()
     set(value) {
@@ -36,9 +29,6 @@ class PostAdapter(
         PostViewHolder(
             CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false),
             actionListener,
-            //likeListener,
-            //shareListener,
-           // removeListener
         )
 
 
@@ -52,9 +42,6 @@ class PostAdapter(
 class PostViewHolder(
     private  val binding: CardPostBinding,
     private val actionListener: OnActionListener
-    //private val likeListener: OnLikeListener,
-    //private val shareListener: OnShareListener,
-    //private val removeListener: OnRemoveListener
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(post: Post) {
@@ -75,11 +62,9 @@ class PostViewHolder(
                 }
             )
             buttonLike.setOnClickListener {
-                //likeListener(post)
                 actionListener.onLikeClicked(post)
             }
             buttonShare.setOnClickListener {
-                //shareListener(post)
                 actionListener.onShareClicked(post)
             }
 
@@ -90,7 +75,6 @@ class PostViewHolder(
                         when (menuItem.itemId) {
                             R.id.menu_remove -> {
                                 actionListener.onRemoveClicked(post)
-                                //removeListener(post)
                                 true
                             }
                             R.id.menu_edit -> {
